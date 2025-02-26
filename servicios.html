@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicios - Municipalidad de San Miguel</title>
+  <style>
+    /* Variables de colores */
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2980b9;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --success-color: #27ae60;
+      --warning-color: #e74c3c;
+    }
+
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Encabezado */
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    .logo-text h1 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .logo-text p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .contact-info {
+      text-align: right;
+    }
+
+    .contact-info p {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+
+    /* Navegación */
+    nav {
+      background-color: var(--secondary-color);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .nav-menu a:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* Encabezado de la página */
+    .page-header {
+      background-color: var(--light-color);
+      padding: 40px 0;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .page-header h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    /* Sección principal */
+    main {
+      padding: 50px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h3 {
+      font-size: 1.6rem;
+      color: var(--primary-color);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section-title h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 15px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-content {
+      padding: 20px;
+    }
+
+    .service-content h4 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .service-content p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      font-size: 0.85rem;
+    }
+
+    .btn:hover {
+      background-color: #e67e22;
+    }
+
+    /* Pie de página */
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 50px 0 20px;
+      margin-top: 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+
+    .social-links a:hover {
+      background-color: var(--accent-color);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        margin-bottom: 15px;
+        justify-content: center;
+      }
+
+      .contact-info {
+        text-align: center;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+      }
+
+      .page-header {
+        padding: 20px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <div class="logo">
+          <img src="https://via.placeholder.com/60x60" alt="Escudo Municipal">
+          <div class="logo-text">
+            <h1>Municipalidad de San Miguel</h1>
+            <p>Gobierno Municipal 2023-2027</p>
+          </div>
+        </div>
+        <div class="contact-info">
+          <p>Teléfono: (01) 555-1234</p>
+          <p>Email: contacto@sanmiguel.gob</p>
+          <p>Lunes a Viernes: 8:00 - 16:00</p>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="municipalidad.html">La Municipalidad</a></li>
+          <li><a href="servicios.html" aria-current="page">Servicios</a></li>
+          <li><a href="tramites.html">Trámites</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="turismo.html">Turismo</a></li>
+          <li><a href="transparencia.html">Transparencia</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Encabezado de página -->
+  <section class="page-header">
+    <div class="container">
+      <h2>Servicios Municipales</h2>
+      <p>Encuentra aquí la información de los principales servicios ofrecidos por la Municipalidad de San Miguel.</p>
+    </div>
+  </section>
+
+  <!-- Contenido principal -->
+  <main>
+    <div class="container">
+      <div class="section-title">
+        <h3>Nuestros Servicios</h3>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://via.placeholder.com/400x200" alt="Servicio 1">
+          </div>
+          <div class="service-content">
+            <h4>Limpieza Pública</h4>
+            <p>Recogemos los residuos sólidos de manera sistemática para garantizar calles limpias y seguras.</p>
+            <a href="#" class="btn">Más info</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://via.placeholder.com/400x200" alt="Servicio 2">
+          </div>
+          <div class="service-content">
+            <h4>Seguridad Ciudadana</h4>
+            <p>Protegemos tu tranquilidad a través de patrullaje, cámaras y acciones preventivas en todo el distrito.</p>
+            <a href="#" class="btn">Más info</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://via.placeholder.com/400x200" alt="Servicio 3">
+          </div>
+          <div class="service-content">
+            <h4>Mantenimiento de Parques</h4>
+            <p>Preservamos las áreas verdes para fomentar espacios de recreación y esparcimiento para la comunidad.</p>
+            <a href="#" class="btn">Más info</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://via.placeholder.com/400x200" alt="Servicio 4">
+          </div>
+          <div class="service-content">
+            <h4>Registro Civil</h4>
+            <p>Brindamos asesoría y trámites para actas de nacimiento, matrimonio y defunción.</p>
+            <a href="#" class="btn">Más info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Municipalidad de San Miguel</h3>
+          <p>Av. Principal 123, San Miguel, Lima</p>
+          <ul class="footer-links">
+            <li><a href="contacto.html">Contáctanos</a></li>
+            <li><a href="transparencia.html">Transparencia</a></li>
+            <li><a href="tramites.html">Trámites</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Recursos</h3>
+          <ul class="footer-links">
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="turismo.html">Turismo</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Síguenos</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">
+              <i class="icon-facebook"></i>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <i class="icon-twitter"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="icon-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2023 Municipalidad de San Miguel
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+</qodoArtifact>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Turismo - Municipalidad de San Miguel</title>
+  <style>
+    /* Variables de colores */
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2980b9;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    /* Reset y estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    header nav ul li {
+      margin: 0 1rem;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.2s;
+    }
+
+    header nav ul li a:hover {
+      background-color: var(--secondary-color);
+      border-radius: 4px;
+    }
+
+    .hero {
+      position: relative;
+      background: url("https://via.placeholder.com/1200x400") center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      color: #fff;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem 2rem;
+      border-radius: 4px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      font-size: 1.6rem;
+    }
+
+    .tourism-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .tourism-card {
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .tourism-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .tourism-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tourism-card-content {
+      padding: 1rem;
+    }
+
+    .tourism-card-content h3 {
+      color: var(--dark-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .tourism-card-content p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    footer {
+      background-color: var(--dark-color);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Ajuste responsive */
+    @media (max-width: 768px) {
+      .hero {
+        height: 250px;
+      }
+      .hero-content {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      .hero p {
+        font-size: 0.9rem;
+      }
+      .tourism-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="la_municipalidad.html">La Municipalidad</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="tramites.html">Trámites</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="turismo.html" aria-current="page">Turismo</a></li>
+        <li><a href="transparencia.html">Transparencia</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Descubre San Miguel</h1>
+      <p>Conoce nuestros atractivos turísticos, cultura y gastronomía</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="section-title">Lugares para Visitar</div>
+    <div class="tourism-grid">
+      <div class="tourism-card">
+        <img src="https://via.placeholder.com/600x300" alt="Parque Central">
+        <div class="tourism-card-content">
+          <h3>Parque Central</h3>
+          <p>
+            Un espacio verde en el corazón del distrito, ideal para paseos en familia, actividades deportivas
+            y eventos culturales al aire libre.
+          </p>
+          <a href="#" class="btn">Ver más</a>
+        </div>
+      </div>
+      <div class="tourism-card">
+        <img src="https://via.placeholder.com/600x300" alt="Museo de San Miguel">
+        <div class="tourism-card-content">
+          <h3>Museo de San Miguel</h3>
+          <p>
+            Contempla la historia y el arte local en este museo que exhibe colecciones de artefactos prehispánicos,
+            así como la evolución del distrito.
+          </p>
+          <a href="#" class="btn">Ver más</a>
+        </div>
+      </div>
+      <div class="tourism-card">
+        <img src="https://via.placeholder.com/600x300" alt="Malecón Municipal">
+        <div class="tourism-card-content">
+          <h3>Malecón Municipal</h3>
+          <p>
+            Disfruta de la brisa marina y una hermosa vista al litoral. Un lugar perfecto para caminar,
+            relajarse o practicar deporte al aire libre.
+          </p>
+          <a href="#" class="btn">Ver más</a>
+        </div>
+      </div>
+      <div class="tourism-card">
+        <img src="https://via.placeholder.com/600x300" alt="Cerro Histórico">
+        <div class="tourism-card-content">
+          <h3>Cerro Histórico</h3>
+          <p>
+            Un sitio lleno de leyendas y tradiciones, con rutas de senderismo y miradores panorámicos para los amantes de la naturaleza.
+          </p>
+          <a href="#" class="btn">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Municipalidad de San Miguel</p>
+  </footer>
+</body>
+</html>

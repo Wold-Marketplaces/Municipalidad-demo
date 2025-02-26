@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Transparencia - Municipalidad de San Miguel</title>
+  <style>
+    /* Variables de colores */
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2980b9;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    /* Reset y estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .sections-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .transparency-section {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .transparency-section:hover {
+      transform: translateY(-2px);
+    }
+
+    .transparency-section h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .transparency-section p {
+      margin-bottom: 1rem;
+      text-align: justify;
+      font-size: 0.95rem;
+    }
+
+    .transparency-section a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+      font-size: 0.85rem;
+    }
+
+    .transparency-section a:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Ajustes responsivos */
+    @media (min-width: 768px) {
+      .sections-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Transparencia Municipal</h1>
+
+  <div class="sections-grid">
+    <!-- Sección de Presupuesto -->
+    <section class="transparency-section">
+      <h3>Presupuesto Municipal</h3>
+      <p>
+        Conoce en detalle la asignación y distribución de los fondos para obras, programas y actividades que realiza la municipalidad.
+        Aseguramos una gestión eficiente y responsable de los recursos públicos.
+      </p>
+      <a href="#">Ver Presupuesto</a>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section class="transparency-section">
+      <h3>Proyectos en Ejecución</h3>
+      <p>
+        Entérate de los proyectos que estamos desarrollando actualmente en diferentes sectores
+        como infraestructura, salud, educación y desarrollo social.
+      </p>
+      <a href="#">Ver Proyectos</a>
+    </section>
+
+    <!-- Sección de Rendición de Cuentas -->
+    <section class="transparency-section">
+      <h3>Rendición de Cuentas</h3>
+      <p>
+        Revisa los informes de gestión y auditorías externas que realizamos periódicamente para garantizar
+        la integridad y eficiencia de nuestras actividades administrativas.
+      </p>
+      <a href="#">Ver Informes</a>
+    </section>
+
+    <!-- Sección de Participación Ciudadana -->
+    <section class="transparency-section">
+      <h3>Participación Ciudadana</h3>
+      <p>
+        Infórmate sobre las iniciativas de participación ciudadana, como audiencias públicas y consultas vecinales,
+        que contribuyen a una gestión más inclusiva y democrática.
+      </p>
+      <a href="#">Ver Iniciativas</a>
+    </section>
+  </div>
+</body>
+</html>
+</qodoArtifact>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Municipalidad - Municipalidad de San Miguel</title>
+  <!-- Estilos embebidos en el mismo archivo HTML -->
+  <style>
+    /* Variables de colores (opcional, ajusta a tu preferencia) */
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2980b9;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    /* Reset y estilos globales */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    /* Encabezado */
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 1rem;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 1rem;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    header nav ul li a:hover,
+    header nav ul li a[aria-current="page"] {
+      background-color: var(--secondary-color);
+      border-radius: 4px;
+    }
+
+    /* Sección principal */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    main h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+
+    .sections-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .history,
+    .authorities {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .history h3,
+    .authorities h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .history p,
+    .authorities p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .authorities-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .authorities-list li {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Ajuste responsive */
+    @media screen and (min-width: 768px) {
+      .sections-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Pie de página */
+    footer {
+      text-align: center;
+      background-color: var(--dark-color);
+      color: #fff;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado con enlace al index principal -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="la_municipalidad.html" aria-current="page">La Municipalidad</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <!-- Agrega otros enlaces al menú si es necesario -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>La Municipalidad de San Miguel</h1>
+    <div class="sections-grid">
+      <!-- Historia de la Municipalidad -->
+      <section class="history">
+        <h3>Historia</h3>
+        <p>
+          La Municipalidad de San Miguel fue fundada con el propósito de impulsar el desarrollo de la comunidad y atender las necesidades de todos sus vecinos.
+          A lo largo de los años, se han llevado a cabo diversas iniciativas y proyectos que han contribuido a mejorar la calidad de vida en el distrito.
+        </p>
+        <p>
+          Con una extensión de varias décadas de servicio, la municipalidad se ha consolidado como uno de los pilares fundamentales en la promoción de la cultura,
+          la educación y el bienestar de la población.
+        </p>
+      </section>
+
+      <!-- Autoridades Municipales -->
+      <section class="authorities">
+        <h3>Autoridades</h3>
+        <p>
+          Nuestras autoridades municipales trabajan de manera conjunta para supervisar y gestionar los servicios y proyectos que se desarrollan en la región,
+          garantizando la atención de las necesidades de la ciudadanía.
+        </p>
+        <ul class="authorities-list">
+          <li>Alcalde: Juan Pérez</li>
+          <li>Regidor 1: María García</li>
+          <li>Regidor 2: Carlos Ortiz</li>
+          <li>Regidor 3: Ana Fernández</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2023 Municipalidad de San Miguel</p>
+  </footer>
+</body>
+</html>
+</qodoArtifact>

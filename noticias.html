@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticias - Municipalidad de San Miguel</title>
+  <style>
+    /* Variables de colores */
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2980b9;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --success-color: #27ae60;
+      --warning-color: #e74c3c;
+    }
+
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* Encabezado */
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      margin-right: 1rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.5rem;
+      margin: 0 0 0.25rem;
+    }
+
+    .logo-text p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .contact-info p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Navegación */
+    nav {
+      background-color: var(--dark-color);
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+
+    .nav-menu li {
+      margin: 0 0.5rem;
+    }
+
+    .nav-menu li a {
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background-color: transparent;
+    }
+
+    .nav-menu li a:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* Contenido principal */
+    .main-content {
+      padding: 2rem 0;
+    }
+
+    .section-title h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    .news {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .news-card {
+      background-color: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .news-category {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.2rem 0.4rem;
+      background-color: var(--accent-color);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .news-content {
+      padding: 1rem;
+    }
+
+    .news-date {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .news-content h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .news-content p {
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+
+    .news-card .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .news-card .btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Galería de imágenes */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-caption {
+      text-align: center;
+      padding: 0.5rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+
+    /* Video destacado */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin: 2rem 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .lightbox-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .lightbox-caption {
+      text-align: center;
+      margin-top: 0.5rem;
+      color: #fff;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -2rem;
+      right: 0;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <div class="logo">
+          <img src="https://via.placeholder.com/60x60" alt="Escudo Municipal">
+          <div class="logo-text">
+            <h1>Municipalidad de San Miguel</h1>
+            <p>Gobierno Municipal 2023-2027</p>
+          </div>
+        </div>
+        <div class="contact-info">
+          <p>Teléfono: (01) 555-1234</p>
+          <p>Email: contacto@sanmiguel.gob</p>
+          <p>Lunes a Viernes: 8:00 - 16:00</p>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="municipalidad.html">La Municipalidad</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="tramites.html">Trámites</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="turismo.html">Turismo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Sección de Noticias -->
+      <div class="section-title">
+        <h2>Últimas Noticias</h2>
+      </div>
+
+      <div class="news">
+        <!-- Noticia 1 -->
+        <div class="news-card">
+          <img src="https://via.placeholder.com/400x200" alt="Inauguración parque">
+          <span class="news-category">Obras Públicas</span>
+          <div class="news-content">
+            <div class="news-date">15 de Junio, 2023</div>
+            <h3>Inauguración del nuevo parque municipal</h3>
+            <p>El alcalde inauguró el nuevo parque municipal que beneficiará a más de 5,000 vecinos del distrito.</p>
+            <a href="#" class="btn">Leer más</a>
+          </div>
+        </div>
+
+        <!-- Noticia 2 -->
+        <div class="news-card">
+          <img src="https://via.placeholder.com/400x200" alt="Campaña de salud">
+          <span class="news-category">Salud</span>
+          <div class="news-content">
+            <div class="news-date">10 de Junio, 2023</div>
+            <h3>Campaña de vacunación gratuita</h3>
+            <p>La municipalidad en coordinación con el Ministerio de Salud inicia campaña de vacunación.</p>
+            <a href="#" class="btn">Leer más</a>
+          </div>
+        </div>
+
+        <!-- Noticia 3 -->
+        <div class="news-card">
+          <img src="https://via.placeholder.com/400x200" alt="Gestión ambiental">
+          <span class="news-category">Medio Ambiente</span>
+          <div class="news-content">
+            <div class="news-date">5 de Junio, 2023</div>
+            <h3>Nuevo sistema de recojo de residuos</h3>
+            <p>Implementamos un nuevo sistema de recojo de residuos sólidos para mejorar la limpieza.</p>
+            <a href="#" class="btn">Leer más</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Galería de Imágenes -->
+      <div class="section-title">
+        <h2>Galería de Imágenes</h2>
+      </div>
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/300x200" alt="Imagen 1">
+          <div class="gallery-caption">Inauguración de obras</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/300x200" alt="Imagen 2">
+          <div class="gallery-caption">Eventos culturales</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/300x200" alt="Imagen 3">
+          <div class="gallery-caption">Programas sociales</div>
+        </div>
+      </div>
+
+      <!-- Video Destacado -->
+      <div class="section-title">
+        <h2>Video Destacado</h2>
+      </div>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox para imágenes -->
+  <div class="lightbox">
+    <div class="lightbox-content">
+      <img src="" alt="Imagen ampliada">
+      <div class="lightbox-caption"></div>
+    </div>
+    <div class="lightbox-close">&times;</div>
+  </div>
+
+  <!-- Script para el lightbox -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lightbox = document.querySelector('.lightbox');
+      const lightboxImg = lightbox.querySelector('img');
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+      const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const imgSrc = this.querySelector('img').src;
+          const caption = this.querySelector('.gallery-caption').textContent;
+          lightboxImg.src = imgSrc;
+          lightboxCaption.textContent = caption;
+          lightbox.classList.add('active');
+        });
+      });
+
+      lightboxClose.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+      });
+
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+</qodoArtifact>

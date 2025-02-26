@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trámites - Municipalidad de San Miguel</title>
+  <style>
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2980b9;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      margin: 0 0.5rem;
+      transition: background-color 0.2s;
+    }
+
+    header nav ul li a:hover {
+      background-color: var(--secondary-color);
+      border-radius: 4px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+    }
+
+    .tramites-intro {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .tramites-intro p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .tramites-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .tramite-card {
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.2s;
+    }
+
+    .tramite-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .tramite-card h3 {
+      margin-bottom: 0.75rem;
+      color: var(--primary-color);
+    }
+
+    .tramite-card p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    .tramite-card a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+      font-size: 0.85rem;
+    }
+
+    .tramite-card a:hover {
+      background-color: var(--secondary-color);
+    }
+
+    footer {
+      background-color: var(--dark-color);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .tramites-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="municipalidad.html">La Municipalidad</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="tramites.html" aria-current="page">Trámites</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="turismo.html">Turismo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Trámites Municipales</h1>
+    <div class="tramites-intro">
+      <p>
+        En esta sección encontrarás los principales trámites necesarios para realizar gestiones en nuestra municipalidad.
+        Nuestro objetivo es facilitar y agilizar los procedimientos para todos los vecinos de San Miguel.
+      </p>
+      <p>
+        Recuerda que muchos de estos trámites pueden realizarse de manera virtual, ahorrando tiempo y esfuerzo.
+        Selecciona el trámite de tu interés para conocer los requisitos, costos y procedimientos.
+      </p>
+    </div>
+
+    <div class="tramites-list">
+      <div class="tramite-card">
+        <h3>Copia Literal de Partida</h3>
+        <p>
+          Solicita la copia literal de un documento oficial. Para ello, necesitarás contar con tu DNI o documento que acredite la titularidad.
+          El costo puede variar según el tipo de partida y la urgencia.
+        </p>
+        <a href="#">Más información</a>
+      </div>
+      <div class="tramite-card">
+        <h3>Licencia de Funcionamiento</h3>
+        <p>
+          Obtén o renueva la licencia de funcionamiento para tu negocio dentro del distrito.
+          Asegúrate de cumplir con todos los requisitos de zonificación y seguridad.
+        </p>
+        <a href="#">Más información</a>
+      </div>
+      <div class="tramite-card">
+        <h3>Constancia de Posesión</h3>
+        <p>
+          Tramita la constancia de posesión de tu propiedad o terreno, necesaria para diversos procesos legales o bancarios.
+        </p>
+        <a href="#">Más información</a>
+      </div>
+      <div class="tramite-card">
+        <h3>Permisos de Obra</h3>
+        <p>
+          Solicita los permisos necesarios para construcción, remodelación o ampliación de inmuebles,
+          asegurando el cumplimiento de las normas vigentes.
+        </p>
+        <a href="#">Más información</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Municipalidad de San Miguel</p>
+  </footer>
+</body>
+</html>
