@@ -1,174 +1,461 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Contacto - Municipalidad de San Miguel</title>
-  <style>
-    :root {
-      --primary-color: #1a5276;
-      --secondary-color: #2980b9;
-      --accent-color: #f39c12;
-      --light-color: #ecf0f1;
-      --dark-color: #2c3e50;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contacto - Municipalidad de San Miguel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de colores */
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #f39c12;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #e74c3c;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-    body {
-      background-color: var(--light-color);
-      color: var(--dark-color);
-      line-height: 1.6;
-    }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    header {
-      background-color: var(--primary-color);
-      padding: 1rem 0;
-      color: #fff;
-      text-align: center;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
+        /* Encabezado */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
 
-    .section-title h2 {
-      color: var(--primary-color);
-      font-size: 1.6rem;
-    }
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
 
-    .contact-info,
-    .contact-form {
-      background-color: #fff;
-      margin-bottom: 2rem;
-      border-radius: 4px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-    }
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
 
-    .contact-info h3,
-    .contact-form h3 {
-      margin-bottom: 1rem;
-      color: var(--dark-color);
-    }
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
 
-    .contact-info p {
-      margin-bottom: 0.5rem;
-    }
+        .contact-info {
+            text-align: right;
+        }
 
-    .contact-form form {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
+        .contact-info p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
 
-    label {
-      font-weight: bold;
-      margin-bottom: 0.25rem;
-      display: block;
-    }
+        /* Navegación */
+        nav {
+            background-color: var(--secondary-color);
+        }
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
 
-    textarea {
-      resize: vertical;
-    }
+        .nav-menu li {
+            position: relative;
+        }
 
-    button {
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
 
-    button:hover {
-      background-color: var(--secondary-color);
-    }
+        .nav-menu a:hover {
+            background-color: var(--primary-color);
+        }
 
-    footer {
-      text-align: center;
-      background-color: var(--dark-color);
-      color: #fff;
-      padding: 1rem;
-    }
+        /* Encabezado de página */
+        .page-header {
+            background-color: var(--light-color);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-  </style>
+        .page-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Estilos del formulario de contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+        }
+
+        .contact-info-card,
+        .contact-form-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-info-card h3,
+        .contact-form-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-info-card h3::after,
+        .contact-form-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-item i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-form form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #e67e22;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            color: white;
+        }
+
+        .social-links a i {
+            color: white;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header>
-    <h1>Municipalidad de San Miguel - Contacto</h1>
-  </header>
-
-  <main>
-    <div class="section-title">
-      <h2>Contáctanos</h2>
-    </div>
-
-    <div class="contact-info">
-      <h3>Información de Contacto</h3>
-      <p><strong>Teléfono:</strong> (01) 555-1234</p>
-      <p><strong>Correo:</strong> contacto@sanmiguel.gob</p>
-      <p><strong>Dirección:</strong> Av. Principal 123, San Miguel, Lima</p>
-      <p><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 a 16:00</p>
-    </div>
-
-    <div class="contact-form">
-      <h3>Envíanos un Mensaje</h3>
-      <form action="#" method="POST">
-        <div>
-          <label for="nombre">Nombre completo</label>
-          <input type="text" id="nombre" name="nombre" required />
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/60x60" alt="Escudo Municipal">
+                    <div class="logo-text">
+                        <h1>Municipalidad de San Miguel</h1>
+                        <p>Gobierno Municipal 2023-2027</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p>Teléfono: (01) 555-1234</p>
+                    <p>Email: contacto@sanmiguel.gob</p>
+                    <p>Lunes a Viernes: 8:00 - 16:00</p>
+                </div>
+            </div>
         </div>
-        <div>
-          <label for="correo">Correo electrónico</label>
-          <input type="email" id="correo" name="correo" required />
-        </div>
-        <div>
-          <label for="telefono">Teléfono</label>
-          <input type="text" id="telefono" name="telefono" />
-        </div>
-        <div>
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        </div>
-        <div>
-          <button type="submit">Enviar</button>
-        </div>
-      </form>
-    </div>
-  </main>
+        <nav>
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="municipalidad.html">La Municipalidad</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="tramites.html">Trámites</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="turismo.html">Turismo</a></li>
+                    <li><a href="transparencia.html">Transparencia</a></li>
+                    <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-  <footer>
-    <p>&copy; 2023 Municipalidad de San Miguel</p>
-  </footer>
+    <!-- Encabezado de página -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para atender tus consultas y sugerencias</p>
+        </div>
+    </section>
 
+    <!-- Contenido principal -->
+    <main>
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info-card">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Av. Principal 123, San Miguel, Lima</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>(01) 555-1234</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>contacto@sanmiguel.gob</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="far fa-clock"></i>
+                        <p>Lunes a Viernes: 8:00 - 16:00</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Municipalidad de San Miguel</h3>
+                    <p>Av. Principal 123, San Miguel, Lima</p>
+                    <ul class="footer-links">
+                        <li><a href="contacto.html">Contáctanos</a></li>
+                        <li><a href="transparencia.html">Transparencia</a></li>
+                        <li><a href="tramites.html">Trámites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="turismo.html">Turismo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="WhatsApp" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2023 Municipalidad de San Miguel
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
